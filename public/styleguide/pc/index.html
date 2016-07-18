@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>StyleGuide - FrontNote</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="../../pc/css/style.css" />
+</head>
+<body>
+<header class="fn-header">
+    <div class="fn-mobile-visible fn-drawer-trigger"><a class="fn-icon fn-bars fn-icon-link"></a></div>
+    <h1 class="fn-title"><a href="./index.html">StyleGuide</a></h1>
+</header>
+<div class="fn-container">
+    <nav class="fn-sidebar">
+        <a href="./index.html" class="fn-menu fn-is-active">Overview</a>
+        <!-- 全ファイル -->
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-4-layout-_l-grid.html" class="fn-menu">
+            
+                l-grid
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-4-layout-_l-shelf.html" class="fn-menu">
+            
+                l-shelf
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-5-module-_banner.html" class="fn-menu">
+            
+                banner
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-5-module-_button.html" class="fn-menu">
+            
+                button
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-5-module-_facebook-widget.html" class="fn-menu">
+            
+                facebook-widget
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-5-module-_logo.html" class="fn-menu">
+            
+                logo
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-5-module-_media.html" class="fn-menu">
+            
+                media
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-5-module-_nav.html" class="fn-menu">
+            
+                nav
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-5-module-_sns.html" class="fn-menu">
+            
+                sns
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-5-module-_social.html" class="fn-menu">
+            
+                social
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-sprites-_sprite-sns-2x.html" class="fn-menu">
+            
+                _sprite-sns-2x
+            
+        </a>
+        
+        <!-- スタイルガイドへのリンク -->
+        <a href="src-pc-sass-5-module-sprites-_sprite-sns-2x.html" class="fn-menu">
+            
+                _sprite-sns-2x
+            
+        </a>
+        
+    </nav>
+    
+        <section class="fn-content fn-overview">
+            <!-- index.htmlファイルのとき -->
+            <!-- currentにstyleguide.mdがHTMLとして格納されている -->
+            <p>#Coding rule</p>
+<p>##Directory</p>
+<pre><code>+-pc/
+ |-fonts ... web font
+ |-images ... images
+  |-sample/ ... dummy images
+ |-js
+  |-module/ ... JS components by us
+  |-app.js ... This requires module scripts
+  |-vendor.js ... This requires lib scripts
+ |-lib ... plugins &amp; libraries by someone
+ |-sass
+  |-1-setting ... variables
+  |-2-mixin ... mixins
+  |-3-base ... reset, normalise, sanitize / default styles
+  |-4-layout ... layout
+  |-5-module ... module, object, component
+  |-6-utility ... helper
+ |-sprites ... sprite images
+ |-test
+ |-view
+  |-layout ... layout ejs
+  |-metadata ... head &amp; scripts ejs
+  |-module ... module ejs
+  |-svg ... svg
+  index.ejs
+  single.ejs
+  about.ejs
+   ...etc
++-sp/
+</code></pre><p>##Basic</p>
+<p>###Write code with SMACSS
+<a href="https://smacss.com/">https://smacss.com/</a></p>
+<h3 id="avoid-many-nest">Avoid many nest</h3>
+<p>NG</p>
+<pre><code>.list {
+    .list-item {
+        .list-link {
+            &gt; time {
+                &gt; img {
+                }
+            }
+        }
+    }
+}
+</code></pre><p>OK</p>
+<pre><code>.list {
+    .list-item {}
+    .list-link {
+        &gt; img {}
+    }
+}
+</code></pre><p>##Class</p>
+<p>###Use chain case only, and Don&#39;t use uppercase</p>
+<p>NG</p>
+<pre><code>&lt;div class=&quot;listItem&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;slider-item&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;post_item&quot;&gt;&lt;/div&gt;
+</code></pre><p>OK</p>
+<pre><code>&lt;div class=&quot;list-item&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;slider-item&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;post-item&quot;&gt;&lt;/div&gt;
+</code></pre><p>###Don&#39;t use id for style</p>
+<p>NG</p>
+<pre><code>&lt;header id=&quot;header&quot;&gt;&lt;/header&gt;
+</code></pre><p>OK</p>
+<pre><code>&lt;header classs=&quot;l-header&quot;&gt;&lt;/header&gt;
+</code></pre><p>###But you can use id for a hook of JavaScript</p>
+<p>OK</p>
+<pre><code>&lt;header classs=&quot;l-header&quot; id=&quot;js-sticky&quot;&gt;&lt;/header&gt;
+
+&lt;header classs=&quot;l-header js-sticky&quot;&gt;&lt;/header&gt;
+</code></pre><p>###Don&#39;t feel free to omit a name of class</p>
+<p>NG</p>
+<pre><code>&lt;a href=&quot;&quot; class=&quot;btn btn-er&quot;&gt;...&lt;/a&gt;
+</code></pre><p>OK</p>
+<pre><code>&lt;a href=&quot;&quot; class=&quot;button btn-error&quot;&gt;...&lt;/a&gt;
+</code></pre><p>###But you can omit a name of class if you tell us &amp; create lists in advance</p>
+<p>Ex)</p>
+<pre><code>sm - small
+md - middle
+lg - large
+</code></pre><p>###Add prefix all class except modules</p>
+<ul>
+<li>layout = &quot;l-&quot;</li>
+<li>utility = &quot;u-&quot;</li>
+<li>Hooks of JavaScript = &quot;js-&quot;</li>
+<li>State = &quot;is-&quot;</li>
+</ul>
+<p>###extend
+We ban using `@extend&#39; in Sass for avoiding a spaghetti code</p>
+<p>##Value</p>
+<ul>
+<li>px &amp; % as possible as.</li>
+<li>recommend　relative value as possible as,</li>
+<li>use px on font-size</li>
+<li>don&#39;t use em, vm, rem without a reason.</li>
+</ul>
+<p>###px or %
+width, height, padding, margin, top, left, right, bottom, transform</p>
+<p>###px only
+font-size </p>
+<p>###point( ex)1.5 )
+line-height, opacity</p>
+<p>##Color</p>
+<p>Use hexadecimal &amp; lowercase only </p>
+<p>NG</p>
+<pre><code>.foo {
+    background-color: black;
+    color: #FFF;
+}
+</code></pre><p>OK</p>
+<pre><code>.foo {
+    background-color: #000;
+    color: #fff;
+}
+</code></pre><p>##git
+We use git in accordance with git-flow.<br><a href="https://www.atlassian.com/en/git/workflows#!workflow-gitflow">https://www.atlassian.com/en/git/workflows#!workflow-gitflow</a><br><a href="https://www.atlassian.com/ja/git/workflows#!workflow-gitflow">https://www.atlassian.com/ja/git/workflows#!workflow-gitflow</a>  </p>
+<p>master, develop, feature, release, hotfix  </p>
+
+        </section>
+    
+</div>
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/jquery.mousewheel.js"></script>
+<script src="assets/lib/highlight.pack.js"></script>
+<script src="assets/js/ripple-effect.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="../../pc/js/app.js"></script>
+</body>
+</html>
