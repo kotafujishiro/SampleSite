@@ -1,4 +1,16 @@
-# frontplate
+#Sample site for studying OOCSS and SMACSS
+It was made for studying OOCSS and for the presentation in HTML CEBU#1.  
+I uploaded my slide which I used in presentation on slideshare.  
+http://www.slideshare.net/KotaFujishiro/oocss-and-smacss-case-study  
+  
+And Is was made by frontplade ver2.0  
+You can check source code in public.  
+  
+このレポジトリはOOCSSとSMACSSの勉強会用に作成しました。  
+勉強会で使用したスライドは以下のリンク先より確認できます。  
+http://www.slideshare.net/KotaFujishiro/oocss-and-smacss-case-study  
+
+## frontplate
 
 フロントエンド開発の効率を上げるテンプレート
 
